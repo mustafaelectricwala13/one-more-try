@@ -99,17 +99,23 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
   return (
     <div className="absolute inset-0 bg-[#080811]/95 backdrop-blur-md z-30 flex flex-col justify-between p-6 text-center select-none overflow-y-auto">
       {/* Top Banner */}
-      <div className="pt-2">
-        <h2 className="font-arcade text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FF0055] via-[#FF007F] to-[#FF4500] drop-shadow-[0_0_20px_rgba(255,0,85,0.8)]">
+      <div className="pt-2 flex flex-col items-center gap-2">
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-red-600/30 border-2 border-red-500 shadow-[0_0_25px_rgba(239,68,68,0.7)] animate-bounce">
+          <span className="text-xl">💥</span>
+          <span className="font-arcade text-sm font-black text-red-300 tracking-widest uppercase">
+            YOU ARE OUT!
+          </span>
+        </div>
+        <h2 className="font-arcade text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FF0055] via-[#FF007F] to-[#FF4500] drop-shadow-[0_0_20px_rgba(255,0,85,0.8)]">
           GAME OVER
         </h2>
         {isChallengeBeaten && (
-          <div className="inline-block mt-1 px-3 py-1 rounded-full bg-gradient-to-r from-[#00FF66] to-[#00F0FF] text-[#080811] font-arcade text-xs font-black animate-bounce shadow-lg">
+          <div className="inline-block mt-0.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#00FF66] to-[#00F0FF] text-[#080811] font-arcade text-xs font-black animate-bounce shadow-lg">
             🎉 CHALLENGE DESTROYED!
           </div>
         )}
         {isNewHigh && !isChallengeBeaten && (
-          <div className="inline-block mt-1 px-3 py-1 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFA000] text-[#080811] font-arcade text-xs font-black animate-pulse shadow-lg">
+          <div className="inline-block mt-0.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#FFD700] to-[#FFA000] text-[#080811] font-arcade text-xs font-black animate-pulse shadow-lg">
             ★ NEW PERSONAL BEST! ★
           </div>
         )}
@@ -163,7 +169,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
           icon={<RotateCcw className="w-6 h-6 stroke-[3]" />}
           className="w-full max-w-xs shadow-[0_0_35px_rgba(0,240,255,0.7)]"
         >
-          ONE MORE TRY!
+          🔄 RESTART (ONE MORE TRY!)
         </ArcadeButton>
         <span className="text-[11px] text-white/40 font-display -mt-2">
           Press <span className="text-white font-mono font-bold">SPACE</span> or tap to instant restart
